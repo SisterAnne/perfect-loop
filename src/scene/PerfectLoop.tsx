@@ -17,7 +17,8 @@ interface rgbaValue {
 }
 
 export default makeScene2D(function* (view) {
-    const animationTime = 5;
+    const animationTimePerLoop = 5;
+    const animationLoopCount = 5;
 
     // ===== Constant definitions ==============================================
 
@@ -188,9 +189,10 @@ export default makeScene2D(function* (view) {
                     width={maxWidth}
                     height={maxWidth}
                     spacing={maxWidth}
-                    stroke={"#fff"}
+                    stroke="#ccf"
                     lineWidth={1}
                 />
+                <Circle fill="#ccf" height={10} width={10} />
             </>
 
             {/* Bounding circle */}
@@ -247,5 +249,9 @@ export default makeScene2D(function* (view) {
 
     // ===== Generators ========================================================
 
-    yield* time(Math.PI * 2, animationTime, linear);
+    yield* time(
+        Math.PI * 2 * animationLoopCount,
+        animationTimePerLoop * animationLoopCount,
+        linear
+    );
 });
