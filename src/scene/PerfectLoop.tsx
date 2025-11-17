@@ -247,5 +247,5 @@ export default makeScene2D(function* (view) {
 
     // ===== Generators ========================================================
 
-    yield* time(0, 0).to(Math.PI * 2, animationTime, linear);
+    yield* time(Math.PI * 2, animationTime, linear);
 });
